@@ -1,8 +1,11 @@
 const CreateTodo = () => {
   return (
-    <div>
+    <>
       <h1>Create A Todo Task</h1>
-    </div>
+      <button type='button' onClick={() => console.log('suh')}>
+        Add Task
+      </button>
+    </>
   );
 };
 
