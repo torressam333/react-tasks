@@ -1,13 +1,16 @@
 import './App.css';
-import Card from './components/Card';
-import CreateTodo from './components/CreateTodo';
+import TaskForm from './components/TaskForm';
 
 function App() {
   return (
-    <>
-      <Card />
-      <CreateTodo />
-    </>
+    <div className='app'>
+      <TaskForm />
+      <main className='app_main'>
+        <section className='task_column'>Section 1</section>
+        <section className='task_column'>Seciton 2</section>
+        <section className='task_column'>Section 3</section>
+      </main>
+    </div>
   );
 }
 
