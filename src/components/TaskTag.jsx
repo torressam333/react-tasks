@@ -1,16 +1,10 @@
 import '../assets/css/TaskTag.css';
 
-const TaskTag = () => {
-  const tags = ['HTML', 'CSS', 'JavaScript', 'React', 'Node', 'Jest'];
-
+const TaskTag = ({ tagName, tagColor }) => {
   return (
-    <div>
-      {tags.map((tag, index) => (
-        <button key={index} className='tag'>
-          {tag}
-        </button>
-      ))}
-    </div>
+    <button className='tag' style={{ background: tagColor }}>
+      {tagName}
+    </button>
   );
 };
 
