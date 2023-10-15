@@ -1,14 +1,18 @@
 import './App.css';
 import TaskForm from './components/TaskForm';
+import TaskColumn from './components/TaskColumn';
+import todoIcon from './assets/direct-hit.png';
+import inProgressIcon from './assets/glowing-star.png';
+import doneIcon from './assets/check-mark-button.png';
 
 function App() {
   return (
     <div className='app'>
       <TaskForm />
       <main className='app_main'>
-        <section className='task_column'>Section 1</section>
-        <section className='task_column'>Seciton 2</section>
-        <section className='task_column'>Section 3</section>
+        <TaskColumn title='To Do' icon={todoIcon} />
+        <TaskColumn title='In Progress' icon={inProgressIcon} />
+        <TaskColumn title='Done' icon={doneIcon} />
       </main>
     </div>
   );
