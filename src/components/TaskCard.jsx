@@ -8,8 +8,8 @@ const TaskCard = () => {
       <p className='task_text'>Sample Text</p>
       <div className='task_card_bottom_line'>
         <div className='task_card_tags'>
-          <TaskTag tagName='HTML' />
-          <TaskTag tagName='CSS' />
+          <TaskTag tagName='HTML' tagColor='dodgerblue' />
+          <TaskTag tagName='CSS' tagColor='lightgreen' />
         </div>
         <div className='task_delete'>
           <img src={deleteIcon} alt='Delete Icon Png' className='delete_icon' />

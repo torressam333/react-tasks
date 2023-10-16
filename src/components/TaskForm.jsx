@@ -6,6 +6,7 @@ const TaskForm = () => {
   const [taskData, setTaskData] = useState({
     task: '',
     status: 'todo',
+    tags: [],
   });
 
   const handleChange = (e) => {
@@ -16,6 +17,23 @@ const TaskForm = () => {
         ...prev,
         [name]: value,
       };
+    });
+  };
+
+  console.log(taskData.tags);
+
+  const selectTag = (tag) => {
+    // Call use state setter
+    setTaskData((prev) => {
+      // Ternary to check if existing tags arr has the clicked tag
+      const updatedTags = prev.tags.includes(tag)
+        // If it does, remove it from array
+        ? prev.tags.filter((item) => item !== tag)
+        // Otherwise, return existing tags arr
+        : [...prev.tags, tag];
+
+      // Spread prev and add the updated (or unchanged) tags in it
+      return { ...prev, tags: updatedTags };
     });
   };
 
@@ -37,11 +55,11 @@ const TaskForm = () => {
         />
         <div className='task_form_bottom_line'>
           <div>
-            <TaskTag tagName='HTML' tagColor='dodgerblue' />
-            <TaskTag tagName='CSS' />
-            <TaskTag tagName='Node' />
-            <TaskTag tagName='JavaScript' />
-            <TaskTag tagName='React.js' />
+            <TaskTag tagName='HTML' selectTag={selectTag} />
+            <TaskTag tagName='CSS' selectTag={selectTag} />
+            <TaskTag tagName='Node' selectTag={selectTag} />
+            <TaskTag tagName='JavaScript' selectTag={selectTag} />
+            <TaskTag tagName='React.js' selectTag={selectTag} />
           </div>
           <div>
             <select

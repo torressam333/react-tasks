@@ -1,8 +1,13 @@
 import '../assets/css/TaskTag.css';
 
-const TaskTag = ({ tagName, tagColor }) => {
+const TaskTag = ({ tagName, tagColor, selectTag }) => {
   return (
-    <button className='tag' style={{ background: tagColor }}>
+    <button
+      type='button'
+      className='tag'
+      style={{ background: tagColor }}
+      onClick={() => selectTag(tagName)}
+    >
       {tagName}
     </button>
   );
