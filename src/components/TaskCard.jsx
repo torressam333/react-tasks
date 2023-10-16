@@ -5,7 +5,7 @@ import deleteIcon from '../assets/delete.png';
 const TaskCard = () => {
   return (
     <article className='task_card'>
-      <p classNam='task_text'>Sample Text</p>
+      <p className='task_text'>Sample Text</p>
       <div className='task_card_bottom_line'>
         <div className='task_card_tags'>
           <TaskTag tagName='HTML' />
