@@ -9,7 +9,7 @@ import { useEffect, useState } from 'react';
 const oldTasks = localStorage.getItem('tasks');
 
 function App() {
-  const [tasks, setTasks] = useState(JSON.parse(oldTasks));
+  const [tasks, setTasks] = useState(JSON.parse(oldTasks) || []);
 
   const handleDelete = (taskIndex) => {
     const newTasks = tasks.filter((task, index) => index !== taskIndex);
