@@ -9,8 +9,12 @@ const TaskForm = ({ setTasks }) => {
     tags: [],
   });
 
+  const [formError, setFormError] = useState(null);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
+
+    if (value) setFormError(null);
 
     setTaskData((prev) => {
       return {
@@ -40,8 +44,20 @@ const TaskForm = ({ setTasks }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    if (!taskData.task) {
+      setFormError('Missing Task Data');
+
+      return;
+    }
+
     // Add newly created task to tasks array in parent
     setTasks((prev) => [...prev, taskData]);
+
+    setTaskData({
+      task: '',
+      status: 'todo',
+      tags: [],
+    });
   };
 
   return (
@@ -53,7 +69,9 @@ const TaskForm = ({ setTasks }) => {
           placeholder='Enter a task'
           onChange={handleChange}
           name='task'
+          value={taskData.task}
         />
+        {formError && <span style={{ color: 'red' }}>{formError}</span>}
         <div className='task_form_bottom_line'>
           <div>
             <TaskTag
@@ -82,6 +100,7 @@ const TaskForm = ({ setTasks }) => {
               className='task_status'
               onChange={handleChange}
               name='status'
+              value={taskData.status}
             >
               <option value='todo'>To Do</option>
               <option value='in-progress'>In Progress</option>
